@@ -12,14 +12,15 @@ export default function Home({ blogs }) {
     <PageLayout>
       <AuthorIntro />
       <hr />
-      {JSON.stringify(blogs)}
       <Row className="mb-5">
-        <Col md="10">
+        {/* <Col md="10">
           <CardListItem />
-        </Col>
-        <Col md="4">
-          <CardItem />
-        </Col>
+        </Col> */}
+        {blogs.map(blog =>
+          <Col md="4" key={blog.slug} >
+            <CardItem title={blog.title} subtitle={blog.subtitle} />
+          </Col>
+        )}
       </Row>
     </PageLayout>
   )
