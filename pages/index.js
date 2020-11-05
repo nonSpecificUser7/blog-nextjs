@@ -35,9 +35,6 @@ export default function Home({ blogs }) {
   )
 }
 
-// This function is called during the build (build time)
-// Provides props to your page
-// It will create static page
 export async function getStaticProps() {
   const blogs = await getAllBlogs();
   return {
