@@ -7,7 +7,6 @@ import CardListItem from 'components/CardListItem';
 import { getAllBlogs } from 'lib/api';
 
 export default function Home({ blogs }) {
-  debugger
   return (
     <PageLayout>
       <AuthorIntro />
@@ -24,6 +23,10 @@ export default function Home({ blogs }) {
               subtitle={blog.subtitle}
               date={blog.date}
               image={blog.coverImage}
+              link={{
+                href: '/posts/[slug]',
+                as: `/posts/${blog.slug}`
+              }}
             />
           </Col>
         )}
