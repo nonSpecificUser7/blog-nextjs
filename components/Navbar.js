@@ -8,7 +8,7 @@ const BlogNavbar = () => {
             bg="transparent"
             expand="lg" >
             <Navbar.Brand className="fj-navbar-brand">
-                <Link href='/' as='/'>
+                <Link href='/'>
                     <a>Regular Blog</a>
                 </Link>
             </Navbar.Brand>
