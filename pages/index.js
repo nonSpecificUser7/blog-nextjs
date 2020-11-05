@@ -18,7 +18,12 @@ export default function Home({ blogs }) {
         </Col> */}
         {blogs.map(blog =>
           <Col md="4" key={blog.slug} >
-            <CardItem title={blog.title} subtitle={blog.subtitle} />
+            <CardItem
+              title={blog.title}
+              subtitle={blog.subtitle}
+              date={blog.date}
+              image={blog.coverImage}
+            />
           </Col>
         )}
       </Row>
