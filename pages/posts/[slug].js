@@ -1,7 +1,8 @@
-import PageLayout from 'components/PageLayout';
-import PostHeader from 'components/PostHeader';
-import { getBlogBySlug, getAllBlogs } from 'lib/api';
+import PageLayout from 'components/PageLayout'
+import PostHeader from 'components/PostHeader'
+import { getBlogBySlug, getAllBlogs } from 'lib/api'
 import { Row, Col } from 'react-bootstrap'
+import BlockContent from 'components/BlockContent'
 
 const PostDetail = ({ blog }) => {
     return (
@@ -16,9 +17,8 @@ const PostDetail = ({ blog }) => {
                         date={blog.date}
                     />
                     <hr />
-                    {/*  */}
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis deleniti necessitatibus, reprehenderit in soluta similique architecto maiores dignissimos quaerat repellendus perferendis modi. Labore minima quos, delectus aperiam voluptate neque dolorum. Explicabo eligendi alias debitis, aperiam dolores architecto. Temporibus, officia quod..
-        </Col>
+                    <BlockContent content={blog.content} />
+                </Col>
             </Row>
         </PageLayout>
     )
