@@ -3,6 +3,7 @@ import PostHeader from 'components/PostHeader'
 import { getBlogBySlug, getAllBlogs } from 'lib/api'
 import { Row, Col } from 'react-bootstrap'
 import BlockContent from 'components/BlockContent'
+import { urlFor } from 'lib/api'
 
 const PostDetail = ({ blog }) => {
     return (
@@ -12,7 +13,7 @@ const PostDetail = ({ blog }) => {
                     <PostHeader
                         title={blog.title}
                         subtitle={blog.subtitle}
-                        coverImage={blog.coverImage}
+                        coverImage={urlFor(blog.coverImage).height(600).url()}
                         author={blog.author}
                         date={blog.date}
                     />
