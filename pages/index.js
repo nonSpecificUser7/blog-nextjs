@@ -15,13 +15,13 @@ export default function Home({ blogs }) {
   return (
     <PageLayout>
       <AuthorIntro />
-      <hr />
       <FilteringMenu
         filter={filter}
         onChange={(option, value) => {
           setFilter({ ...filter, [option]: value })
         }}
       />
+      <hr />
       <Row className="mb-5">
         {/* <Col md="10">
           <CardListItem />
@@ -29,7 +29,16 @@ export default function Home({ blogs }) {
         {blogs.map(blog =>
           filter.view.list ?
             <Col key={`${blog.slug}-list`} md='9'>
-              <CardListItem />
+              <CardListItem
+                author={blog.author}
+                title={blog.title}
+                subtitle={blog.subtitle}
+                date={blog.date}
+                link={{
+                  href: '/posts/[slug]',
+                  as: `/posts/${blog.slug}`
+                }}
+              />
             </Col>
             :
             <Col md="4" key={blog.slug} >
