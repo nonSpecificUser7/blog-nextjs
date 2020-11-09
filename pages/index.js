@@ -17,10 +17,9 @@ export default function Home({ blogs }) {
       <AuthorIntro />
       <hr />
       <FilteringMenu
-        onChange={() => {
-          setFilter({
-            view: { list: !filter.view.list }
-          })
+        filter={filter}
+        onChange={(option, value) => {
+          setFilter({ ...filter, [option]: value })
         }}
       />
       <Row className="mb-5">
@@ -29,7 +28,7 @@ export default function Home({ blogs }) {
         </Col> */}
         {blogs.map(blog =>
           filter.view.list ?
-            <Col md='9'>
+            <Col key={`${blog.slug}-list`} md='9'>
               <CardListItem />
             </Col>
             :
