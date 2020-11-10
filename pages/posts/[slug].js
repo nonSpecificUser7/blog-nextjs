@@ -31,7 +31,7 @@ const PostDetail = ({ blog, preview }) => {
                     <PostHeader
                         title={blog.title}
                         subtitle={blog.subtitle}
-                        coverImage={urlFor(blog.coverImage).height(600).url()}
+                        coverImage={urlFor(blog.coverImage).height(500).width(1000).url()}
                         author={blog.author}
                         date={blog.date}
                     />
