@@ -2,6 +2,7 @@ import { useSWRPages } from 'swr';
 import { useGetBlogs } from 'actions';
 import { Col } from 'react-bootstrap';
 import CardItem from 'components/CardItem';
+import CardItemBLank from 'components/CardItemBlank';
 import CardListItem from 'components/CardListItem';
 import { useEffect } from 'react'
 
@@ -22,7 +23,16 @@ export const useGetBlogsPages = ({ blogs, filter }) => {
 
             const { data: paginatedBlogs } = withSWR(useGetBlogs({ offset, filter }, initialData));
             debugger
-            if (!paginatedBlogs) { return 'Loading...' }
+            if (!paginatedBlogs) {
+                return Array(3)
+                    .fill(0)
+                    .map((_, i) =>
+                        <Col key={i} md='4'>
+                            <CardItemBLank />
+                        </Col>
+                    )
+
+            }
 
             return paginatedBlogs
                 .map(blog =>
