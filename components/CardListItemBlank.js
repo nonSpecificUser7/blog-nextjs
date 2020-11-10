@@ -1,11 +1,9 @@
+import CardListItem from './CardListItem'
 
+const CardListItemBlank = () =>
+    <CardListItem
+        mode='placeholder'
+    />
 
-const CardListItemBlank = () => {
-    return (
-        <div>
-
-        </div>
-    )
-}
 
 export default CardListItemBlank
