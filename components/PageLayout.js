@@ -22,7 +22,7 @@ const PageLayout = ({ children, className }) => {
                 </div>
                 <footer className="page-footer">
                     <div>
-                        <a href="#">github</a>
+                        <a href="https://github.com/nonSpecificUser7/">github</a>
                     </div>
                 </footer>
             </Container>
