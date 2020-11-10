@@ -10,6 +10,7 @@ import PreviewAlert from 'components/PreviewAlert'
 
 const PostDetail = ({ blog, preview }) => {
     const router = useRouter();
+    let date = blog.date.substring(0, 10)
 
     if (!router.isFallback && !blog?.slug) {
         return <ErrorPage statusCode="404" />
@@ -33,7 +34,7 @@ const PostDetail = ({ blog, preview }) => {
                         subtitle={blog.subtitle}
                         coverImage={urlFor(blog.coverImage).height(500).width(1000).url()}
                         author={blog.author}
-                        date={blog.date}
+                        date={date}
                     />
                     <hr />
                     <BlockContent content={blog.content} />

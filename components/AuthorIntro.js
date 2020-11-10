@@ -11,13 +11,13 @@ const AuthorIntro = () => {
                         width={64}
                         height={64}
                         className="mr-3"
-                        src="https://i.insider.com/55ba87b8dd0895c81c8b4581?width=400&format=jpeg&auto=webp"
+                        src="https://cdn.sanity.io/images/pwtkoahp/production/e3567ea69586c6075a07e0e94de5a4f3cf0aa376-801x801.png"
                         alt="Generic placeholder"
                     />
                     <Media.Body>
-                        <h5 className="font-weight-bold mb-0">nonSpecificUser,</h5>
+                        <h5 className="font-weight-bold mb-0">Welcome!</h5>
                         <p className="welcome-text">
-                            Hello there, it is a typical blog app.
+                            This is a blog app built with NextJS framework and Sanity.io CMS
                 </p>
                     </Media.Body>
                 </Media>

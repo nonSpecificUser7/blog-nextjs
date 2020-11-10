@@ -48,7 +48,7 @@ export const useGetBlogsPages = ({ blogs, filter }) => {
                                 author={blog.author}
                                 title={blog.title}
                                 subtitle={blog.subtitle}
-                                date={blog.date}
+                                date={blog.date.substring(0, 10)}
                                 link={{
                                     href: '/posts/[slug]',
                                     as: `/posts/${blog.slug}`
@@ -61,7 +61,7 @@ export const useGetBlogsPages = ({ blogs, filter }) => {
                                 author={blog.author}
                                 title={blog.title}
                                 subtitle={blog.subtitle}
-                                date={blog.date}
+                                date={blog.date.substring(0, 10)}
                                 image={blog.coverImage}
                                 link={{
                                     href: '/posts/[slug]',
