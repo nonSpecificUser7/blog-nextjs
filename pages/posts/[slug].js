@@ -6,8 +6,9 @@ import { Row, Col } from 'react-bootstrap'
 import BlockContent from 'components/BlockContent'
 import { urlFor } from 'lib/api'
 import { useRouter } from 'next/router'
+import PreviewAlert from 'components/PreviewAlert'
 
-const PostDetail = ({ blog }) => {
+const PostDetail = ({ blog, preview }) => {
     const router = useRouter();
 
     if (!router.isFallback && !blog?.slug) {
@@ -26,6 +27,7 @@ const PostDetail = ({ blog }) => {
         <PageLayout className="blog-detail-page">
             <Row>
                 <Col md={{ span: 10, offset: 1 }}>
+                    {preview && <PreviewAlert />}
                     <PostHeader
                         title={blog.title}
                         subtitle={blog.subtitle}
@@ -41,10 +43,10 @@ const PostDetail = ({ blog }) => {
     )
 }
 
-export async function getStaticProps({ params }) {
-    const blog = await getBlogBySlug(params.slug);
+export async function getStaticProps({ params, preview = false, previewData }) {
+    const blog = await getBlogBySlug(params.slug, preview);
     return {
-        props: { blog }
+        props: { preview, blog }
     }
 }
 
