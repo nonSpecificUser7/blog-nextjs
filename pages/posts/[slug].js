@@ -1,11 +1,27 @@
 import PageLayout from 'components/PageLayout'
 import PostHeader from 'components/PostHeader'
+import ErrorPage from 'next/error'
 import { getBlogBySlug, getAllBlogs } from 'lib/api'
 import { Row, Col } from 'react-bootstrap'
 import BlockContent from 'components/BlockContent'
 import { urlFor } from 'lib/api'
+import { useRouter } from 'next/router'
 
 const PostDetail = ({ blog }) => {
+    const router = useRouter();
+
+    if (!router.isFallback && !blog?.slug) {
+        return <ErrorPage statusCode="404" />
+    }
+
+    if (router.isFallback) {
+        console.log('Loading fallback page')
+        return (
+            <PageLayout className="blog-detail-page">
+                Loading...
+            </PageLayout>
+        )
+    }
     return (
         <PageLayout className="blog-detail-page">
             <Row>
